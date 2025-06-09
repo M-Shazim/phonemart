@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-$#wd27_xhbi1ubj)em&)^3seu4w#vv@69oc1@n(@l9%)%4#8kw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["phonemartpk.store", "www.phonemartpk.store", "13.48.120.194"]
+ALLOWED_HOSTS = ["phonemartpk.store", "www.phonemartpk.store", "13.48.120.194", "*"]
 
 
 
@@ -71,6 +71,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'phonemart.wsgi.application'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://phonemartpk.store",
+    "https://www.phonemartpk.store",
+    "https://mensgallery.xyz",
+    "https://www.mensgallery.xyz",
+    # Add any other domains you plan to use here
+]
+
 
 
 # Database
@@ -118,9 +127,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
-STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
+# STATICFILES_DIRS = [BASE_DIR / 'staticfiles']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
