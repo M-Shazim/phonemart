@@ -5,8 +5,19 @@ from django.views.decorators.http import require_POST
 
 # Home page with special products and banner
 def home_view(request):
-    special_products = Product.objects.filter(is_special=True)
-    return render(request, 'home.html', {'special_products': special_products})
+# Fetch all products
+    products = Product.objects.all()
+    # Fetch special products (your existing logic)
+    special_products = Product.objects.filter(is_special=True)  # Adjust based on your model
+    # Get category choices from Product model
+    product_categories = Product.CATEGORY_CHOICES
+
+    context = {
+        'products': products,
+        'special_products': special_products,
+        'product_categories': product_categories,
+    }
+    return render(request, 'home.html', context)
 
 # Product listing page
 def product_list_view(request):
