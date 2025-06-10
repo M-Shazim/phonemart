@@ -20,6 +20,7 @@ urlpatterns = [
 
     path('about/', about_view, name='about'),
     path('warranty/', warranty_view, name='warranty'),
+    path('faq/', faq_page, name='faq_page'),
 
     path('contact/', contact_view, name='contact'),
     path('refund/', refund_policy_view, name='refund'),

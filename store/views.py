@@ -116,6 +116,9 @@ def warranty_view(request):
 def contact_view(request):
     return render(request, 'contact.html')
 
+def faq_page(request):
+    return render(request, 'faq.html')
+
 
 
 def refund_policy_view(request):
